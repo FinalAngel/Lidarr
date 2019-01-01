@@ -10,6 +10,7 @@ import Link from 'Components/Link/Link';
 import TableRow from 'Components/Table/TableRow';
 import TableRowCell from 'Components/Table/Cells/TableRowCell';
 import Popover from 'Components/Tooltip/Popover';
+import TrackLanguage from 'Album/TrackLanguage';
 import TrackQuality from 'Album/TrackQuality';
 import ProtocolLabel from 'Activity/Queue/ProtocolLabel';
 import Peers from './Peers';
@@ -71,6 +72,8 @@ class InteractiveSearchRow extends Component {
       seeders,
       leechers,
       quality,
+      language,
+      preferredWordScore,
       rejections,
       downloadAllowed,
       isGrabbing,
@@ -119,10 +122,17 @@ class InteractiveSearchRow extends Component {
           }
         </TableRowCell>
 
+        <TableRowCell className={styles.language}>
+          <TrackLanguage language={language} />
+        </TableRowCell>
+
         <TableRowCell className={styles.quality}>
-          <TrackQuality
-            quality={quality}
-          />
+          <TrackQuality quality={quality} />
+        </TableRowCell>
+
+        <TableRowCell className={styles.preferredWordScore}>
+          {preferredWordScore > 0 && `+${preferredWordScore}`}
+          {preferredWordScore < 0 && preferredWordScore}
         </TableRowCell>
 
         <TableRowCell className={styles.rejected}>
@@ -185,6 +195,8 @@ InteractiveSearchRow.propTypes = {
   seeders: PropTypes.number,
   leechers: PropTypes.number,
   quality: PropTypes.object.isRequired,
+  language: PropTypes.object.isRequired,
+  preferredWordScore: PropTypes.number.isRequired,
   rejections: PropTypes.arrayOf(PropTypes.string).isRequired,
   downloadAllowed: PropTypes.bool.isRequired,
   isGrabbing: PropTypes.bool.isRequired,

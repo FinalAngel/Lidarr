@@ -3,7 +3,7 @@ import React from 'react';
 import Label from 'Components/Label';
 import { kinds } from 'Helpers/Props';
 
-function EpisodeLanguage(props) {
+function TrackLanguage(props) {
   const {
     className,
     language,
@@ -24,14 +24,14 @@ function EpisodeLanguage(props) {
   );
 }
 
-EpisodeLanguage.propTypes = {
+TrackLanguage.propTypes = {
   className: PropTypes.string,
   language: PropTypes.object,
   isCutoffNotMet: PropTypes.bool
 };
 
-EpisodeLanguage.defaultProps = {
+TrackLanguage.defaultProps = {
   isCutoffNotMet: true
 };
 
-export default EpisodeLanguage;
+export default TrackLanguage;

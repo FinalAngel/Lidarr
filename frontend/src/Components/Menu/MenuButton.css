@@ -19,3 +19,12 @@
 
   pointer-events: none;
 }
+
+@media only screen and (max-width: $breakpointSmall) {
+  .menuButton {
+    &::after {
+      margin-left: 0;
+      content: '\25BE';
+    }
+  }
+}

@@ -31,6 +31,7 @@ import {
   faBookmark as fasBookmark,
   faBookReader as fasBookReader,
   faBug as fasBug,
+  faBroadcastTower as fasBroadcastTower,
   faCalendarAlt as fasCalendarAlt,
   faCaretDown as fasCaretDown,
   faCheck as fasCheck,
@@ -53,6 +54,7 @@ import {
   faEye as fasEye,
   faFastBackward as fasFastBackward,
   faFastForward as fasFastForward,
+  faFileInvoice as farFileInvoice,
   faFilter as fasFilter,
   faFolderOpen as fasFolderOpen,
   faForward as fasForward,
@@ -76,7 +78,6 @@ import {
   faRocket as fasRocket,
   faSave as fasSave,
   faSearch as fasSearch,
-  faSignal as fasSignal,
   faSignOutAlt as fasSignOutAlt,
   faSitemap as fasSitemap,
   faSpinner as fasSpinner,
@@ -93,6 +94,7 @@ import {
   faTimes as fasTimes,
   faTimesCircle as fasTimesCircle,
   faUser as fasUser,
+  faUserPlus as fasUserPlus,
   faVial as fasVial,
   faWrench as fasWrench
 } from '@fortawesome/free-solid-svg-icons';
@@ -149,9 +151,10 @@ export const INFO = fasInfoCircle;
 export const INTERACTIVE = fasUser;
 export const KEYBOARD = farKeyboard;
 export const LOGOUT = fasSignOutAlt;
+export const MEDIA_INFO = farFileInvoice;
 export const MISSING = fasExclamationTriangle;
 export const MONITORED = fasBookmark;
-export const NETWORK = fasSignal;
+export const NETWORK = fasBroadcastTower;
 export const NAVBAR_COLLAPSE = fasBars;
 export const NOT_AIRED = farClock;
 export const ORGANIZE = fasSitemap;
@@ -176,6 +179,7 @@ export const REORDER = fasBars;
 export const RSS = fasRss;
 export const SAVE = fasSave;
 export const SCHEDULED = farClock;
+export const SCORE = fasUserPlus;
 export const SEARCH = fasSearch;
 export const ARTIST_CONTINUING = fasPlay;
 export const ARTIST_ENDED = fasStop;

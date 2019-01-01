@@ -310,7 +310,9 @@ export const reducers = createHandleActions({
       isFetching: false,
       isPopulated: false,
       error: null,
-      items: []
+      items: [],
+      totalPages: 0,
+      totalRecords: 0
     }
   ),
 
@@ -320,7 +322,9 @@ export const reducers = createHandleActions({
       isFetching: false,
       isPopulated: false,
       error: null,
-      items: []
+      items: [],
+      totalPages: 0,
+      totalRecords: 0
     }
   )
 
