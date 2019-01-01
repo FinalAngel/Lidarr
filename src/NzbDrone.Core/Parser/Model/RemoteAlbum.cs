@@ -14,6 +14,7 @@ namespace NzbDrone.Core.Parser.Model
         public List<Album> Albums { get; set; }
         public bool DownloadAllowed { get; set; }
         public TorrentSeedConfiguration SeedConfiguration { get; set; }
+        public int PreferredWordScore { get; set; }
 
         public bool IsRecentAlbum()
         {

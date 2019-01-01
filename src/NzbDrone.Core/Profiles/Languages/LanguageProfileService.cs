@@ -74,7 +74,7 @@ namespace NzbDrone.Core.Profiles.Languages
         {
             var languages = Language.All
                                     .OrderByDescending(l => l.Name)
-                                    .Select(v => new ProfileLanguageItem { Language = v, Allowed = allowed.Contains(v) })
+                                    .Select(v => new LanguageProfileItem { Language = v, Allowed = allowed.Contains(v) })
                                     .ToList();
 
             var profile = new LanguageProfile

@@ -124,7 +124,7 @@ namespace NzbDrone.Core.ImportLists
                         },
                         Monitored = importList.ShouldMonitor,
                         RootFolderPath = importList.RootFolderPath,
-                        ProfileId = importList.ProfileId,
+                        QualityProfileId = importList.ProfileId,
                         LanguageProfileId = importList.LanguageProfileId,
                         MetadataProfileId = importList.MetadataProfileId,
                         Tags = importList.Tags,

@@ -5,11 +5,11 @@ using NzbDrone.Core.Qualities;
 
 namespace NzbDrone.Core.Profiles.Qualities
 {
-    public class Profile : ModelBase
+    public class QualityProfile : ModelBase
     {
         public string Name { get; set; }
         public int Cutoff { get; set; }
-        public List<ProfileQualityItem> Items { get; set; }
+        public List<QualityProfileQualityItem> Items { get; set; }
 
         public Quality LastAllowedQuality()
         {

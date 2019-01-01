@@ -378,7 +378,7 @@ namespace NzbDrone.Core.MediaFiles.TrackImport
                 return true;
             }
 
-            if (new QualityModelComparer(artist.Profile).Compare(folderInfo.Quality, fileQuality) > 0)
+            if (new QualityModelComparer(artist.QualityProfile).Compare(folderInfo.Quality, fileQuality) > 0)
             {
                 return true;
             }

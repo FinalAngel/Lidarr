@@ -51,7 +51,7 @@ namespace NzbDrone.Core.MediaFiles.TrackImport
         {
             var qualifiedImports = decisions.Where(c => c.Approved)
                .GroupBy(c => c.LocalTrack.Artist.Id, (i, s) => s
-                   .OrderByDescending(c => c.LocalTrack.Quality, new QualityModelComparer(s.First().LocalTrack.Artist.Profile))
+                   .OrderByDescending(c => c.LocalTrack.Quality, new QualityModelComparer(s.First().LocalTrack.Artist.QualityProfile))
                    .ThenByDescending(c => c.LocalTrack.Language, new LanguageComparer(s.First().LocalTrack.Artist.LanguageProfile))
                    .ThenByDescending(c => c.LocalTrack.Size))
                .SelectMany(c => c)

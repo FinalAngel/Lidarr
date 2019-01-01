@@ -8,7 +8,7 @@ namespace NzbDrone.Core.Profiles.Languages
     public class LanguageProfile : ModelBase
     {
         public string Name { get; set; }
-        public List<ProfileLanguageItem> Languages { get; set; }
+        public List<LanguageProfileItem> Languages { get; set; }
         public Language Cutoff { get; set;  }
 
         public Language LastAllowedLanguage()

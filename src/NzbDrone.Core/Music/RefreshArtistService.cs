@@ -143,7 +143,7 @@ namespace NzbDrone.Core.Music
         {
             foreach (var album in albumsToUpdate)
             {
-                album.ProfileId = artist.ProfileId;
+                album.ProfileId = artist.QualityProfileId;
                 album.Monitored = artist.Monitored;
             }
 
