@@ -22,7 +22,7 @@ namespace Lidarr.Api.V1.Profiles.Language
 
             orderedLanguages.Insert(0, NzbDrone.Core.Languages.Language.Unknown);
 
-            var languages = orderedLanguages.Select(v => new ProfileLanguageItem {Language = v, Allowed = false})
+            var languages = orderedLanguages.Select(v => new LanguageProfileItem {Language = v, Allowed = false})
                                             .ToList();
 
             var profile = new LanguageProfile

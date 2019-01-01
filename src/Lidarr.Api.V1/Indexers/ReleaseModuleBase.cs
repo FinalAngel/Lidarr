@@ -29,7 +29,7 @@ namespace Lidarr.Api.V1.Indexers
             if (decision.RemoteAlbum.Artist != null)
             {
                 release.QualityWeight = decision.RemoteAlbum.Artist
-                                                              .Profile.Value
+                                                              .QualityProfile.Value
                                                               .Items.FindIndex(v => v.Quality == release.Quality.Quality) * 100;
             }
 
