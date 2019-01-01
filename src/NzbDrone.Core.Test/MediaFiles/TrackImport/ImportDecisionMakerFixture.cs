@@ -55,7 +55,7 @@ namespace NzbDrone.Core.Test.MediaFiles.TrackImport
             _fail3.Setup(c => c.IsSatisfiedBy(It.IsAny<LocalTrack>())).Returns(Decision.Reject("_fail3"));
 
             _artist = Builder<Artist>.CreateNew()
-                                     .With(e => e.Profile = new Profile { Items = Qualities.QualityFixture.GetDefaultQualities() })
+                                     .With(e => e.QualityProfile = new QualityProfile { Items = Qualities.QualityFixture.GetDefaultQualities() })
                                      .With(e => e.LanguageProfile = new LanguageProfile { Languages = Languages.LanguageFixture.GetDefaultLanguages() })
                                      .Build();
 
@@ -377,7 +377,7 @@ namespace NzbDrone.Core.Test.MediaFiles.TrackImport
         {
             GivenSpecifications(_pass1, _pass2, _pass3);
 
-            _artist.Profile = new Profile
+            _artist.QualityProfile = new QualityProfile
                               {
                                   Items = Qualities.QualityFixture.GetDefaultQualities(Quality.MP3_256, Quality.Unknown)
                               };

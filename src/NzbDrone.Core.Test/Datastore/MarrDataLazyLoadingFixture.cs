@@ -21,7 +21,7 @@ namespace NzbDrone.Core.Test.Datastore
         [SetUp]
         public void Setup()
         {
-            var profile = new Profile
+            var profile = new QualityProfile
             {
                 Name = "Test",
                 Cutoff = Quality.MP3_320.Id,
@@ -48,7 +48,7 @@ namespace NzbDrone.Core.Test.Datastore
             var artist = Builder<Artist>.CreateListOfSize(1)
                 .All()
                 .With(v => v.Id = 0)
-                .With(v => v.ProfileId = profile.Id)
+                .With(v => v.QualityProfileId = profile.Id)
                 .With(v => v.LanguageProfileId = languageProfile.Id)
                 .With(v => v.ArtistMetadataId = metadata.Id)
                 .BuildListOfNew();
@@ -127,7 +127,7 @@ namespace NzbDrone.Core.Test.Datastore
                 Assert.IsTrue(track.AlbumRelease.Value.Album.IsLoaded);
                 Assert.IsTrue(track.AlbumRelease.Value.Album.Value.Artist.IsLoaded);
                 Assert.IsNotNull(track.AlbumRelease.Value.Album.Value.Artist.Value);
-                Assert.IsFalse(track.AlbumRelease.Value.Album.Value.Artist.Value.Profile.IsLoaded);
+                Assert.IsFalse(track.AlbumRelease.Value.Album.Value.Artist.Value.QualityProfile.IsLoaded);
                 Assert.IsFalse(track.AlbumRelease.Value.Album.Value.Artist.Value.LanguageProfile.IsLoaded);
             }
         }
@@ -159,7 +159,7 @@ namespace NzbDrone.Core.Test.Datastore
                 .Join<Track, AlbumRelease>(JoinType.Inner, v => v.AlbumRelease, (l, r) => l.AlbumReleaseId == r.Id)
                 .Join<AlbumRelease, Album>(JoinType.Inner, v => v.Album, (l, r) => l.AlbumId == r.Id)
                 .Join<Album, Artist>(JoinType.Inner, v => v.Artist, (l, r) => l.ArtistMetadataId == r.ArtistMetadataId)
-                .Join<Artist, Profile>(JoinType.Inner, v => v.Profile, (l, r) => l.ProfileId == r.Id)
+                .Join<Artist, QualityProfile>(JoinType.Inner, v => v.QualityProfile, (l, r) => l.QualityProfileId == r.Id)
                 .ToList();
 
             foreach (var track in tracks)
@@ -168,7 +168,7 @@ namespace NzbDrone.Core.Test.Datastore
                 Assert.IsTrue(track.AlbumRelease.Value.Album.IsLoaded);
                 Assert.IsTrue(track.AlbumRelease.Value.Album.Value.Artist.IsLoaded);
                 Assert.IsNotNull(track.AlbumRelease.Value.Album.Value.Artist.Value);
-                Assert.IsTrue(track.AlbumRelease.Value.Album.Value.Artist.Value.Profile.IsLoaded);
+                Assert.IsTrue(track.AlbumRelease.Value.Album.Value.Artist.Value.QualityProfile.IsLoaded);
                 Assert.IsFalse(track.AlbumRelease.Value.Album.Value.Artist.Value.LanguageProfile.IsLoaded);
             }
         }
@@ -192,7 +192,7 @@ namespace NzbDrone.Core.Test.Datastore
                 Assert.IsTrue(track.AlbumRelease.Value.Album.IsLoaded);
                 Assert.IsTrue(track.AlbumRelease.Value.Album.Value.Artist.IsLoaded);
                 Assert.IsNotNull(track.AlbumRelease.Value.Album.Value.Artist.Value);
-                Assert.IsFalse(track.AlbumRelease.Value.Album.Value.Artist.Value.Profile.IsLoaded);
+                Assert.IsFalse(track.AlbumRelease.Value.Album.Value.Artist.Value.QualityProfile.IsLoaded);
                 Assert.IsTrue(track.AlbumRelease.Value.Album.Value.Artist.Value.LanguageProfile.IsLoaded);
             }
         }

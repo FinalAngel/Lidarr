@@ -32,7 +32,7 @@ namespace NzbDrone.Core.Test.DecisionEngineTests
             Mocker.Resolve<UpgradableSpecification>();
 
             _artist = Builder<Artist>.CreateNew()
-                                     .With(e => e.Profile = new Profile
+                                     .With(e => e.QualityProfile = new QualityProfile
                                      {
                                          Items = Qualities.QualityFixture.GetDefaultQualities(),
                                      })
@@ -104,7 +104,7 @@ namespace NzbDrone.Core.Test.DecisionEngineTests
         [Test]
         public void should_return_true_when_quality_in_queue_is_lower()
         {
-            _artist.Profile.Value.Cutoff = Quality.MP3_320.Id;
+            _artist.QualityProfile.Value.Cutoff = Quality.MP3_320.Id;
             _artist.LanguageProfile.Value.Cutoff = Language.Spanish;
 
             var remoteAlbum = Builder<RemoteAlbum>.CreateNew()
@@ -124,7 +124,7 @@ namespace NzbDrone.Core.Test.DecisionEngineTests
         [Test]
         public void should_return_true_when_quality_in_queue_is_lower_but_language_is_higher()
         {
-            _artist.Profile.Value.Cutoff = Quality.FLAC.Id;
+            _artist.QualityProfile.Value.Cutoff = Quality.FLAC.Id;
             _artist.LanguageProfile.Value.Cutoff = Language.Spanish;
 
             var remoteAlbum = Builder<RemoteAlbum>.CreateNew()
@@ -194,7 +194,7 @@ namespace NzbDrone.Core.Test.DecisionEngineTests
         [Test]
         public void should_return_false_when_quality_in_queue_is_better()
         {
-            _artist.Profile.Value.Cutoff = Quality.FLAC.Id;
+            _artist.QualityProfile.Value.Cutoff = Quality.FLAC.Id;
 
             var remoteAlbum = Builder<RemoteAlbum>.CreateNew()
                                                       .With(r => r.Artist = _artist)
@@ -290,7 +290,7 @@ namespace NzbDrone.Core.Test.DecisionEngineTests
         [Test]
         public void should_return_false_if_quality_and_language_in_queue_meets_cutoff()
         {
-            _artist.Profile.Value.Cutoff = _remoteAlbum.ParsedAlbumInfo.Quality.Quality.Id;
+            _artist.QualityProfile.Value.Cutoff = _remoteAlbum.ParsedAlbumInfo.Quality.Quality.Id;
 
             var remoteAlbum = Builder<RemoteAlbum>.CreateNew()
                                                       .With(r => r.Artist = _artist)

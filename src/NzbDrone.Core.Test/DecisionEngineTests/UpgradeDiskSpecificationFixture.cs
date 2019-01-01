@@ -40,7 +40,7 @@ namespace NzbDrone.Core.Test.DecisionEngineTests
             var languages = Languages.LanguageFixture.GetDefaultLanguages(Language.English, Language.Spanish);
 
             var fakeArtist = Builder<Artist>.CreateNew()
-                         .With(c => c.Profile = new Profile { Cutoff = Quality.MP3_320.Id, Items = Qualities.QualityFixture.GetDefaultQualities()})
+                         .With(c => c.QualityProfile = new QualityProfile { Cutoff = Quality.MP3_320.Id, Items = Qualities.QualityFixture.GetDefaultQualities()})
                          .With(l => l.LanguageProfile = new LanguageProfile { Cutoff = Language.Spanish, Languages = languages })
                          .Build();
 

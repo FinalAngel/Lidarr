@@ -3,7 +3,7 @@ using NUnit.Framework;
 using NzbDrone.Core.Configuration;
 using NzbDrone.Core.Profiles.Qualities;
 using NzbDrone.Core.Qualities;
-using NzbDrone.Core.DecisionEngine;
+using NzbDrone.Core.DecisionEngine.Specifications;
 using NzbDrone.Core.Test.Framework;
 using NzbDrone.Core.Languages;
 using NzbDrone.Core.Profiles.Languages;
@@ -53,7 +53,7 @@ namespace NzbDrone.Core.Test.DecisionEngineTests
         {
             GivenAutoDownloadPropers(true);
 
-            var profile = new Profile
+            var profile = new QualityProfile
 
             {
                 Items = Qualities.QualityFixture.GetDefaultQualities()
@@ -75,7 +75,7 @@ namespace NzbDrone.Core.Test.DecisionEngineTests
         {
             GivenAutoDownloadPropers(true);
 
-            var profile = new Profile
+            var profile = new QualityProfile
             {
                 Items = Qualities.QualityFixture.GetDefaultQualities(),
                 Cutoff = cutoff.Id,
@@ -95,7 +95,7 @@ namespace NzbDrone.Core.Test.DecisionEngineTests
         {
             GivenAutoDownloadPropers(false);
 
-            var profile = new Profile
+            var profile = new QualityProfile
             {
                 Items = Qualities.QualityFixture.GetDefaultQualities(),
             };

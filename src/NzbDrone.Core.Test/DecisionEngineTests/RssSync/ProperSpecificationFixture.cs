@@ -40,7 +40,7 @@ namespace NzbDrone.Core.Test.DecisionEngineTests.RssSync
 
 
             var fakeArtist = Builder<Artist>.CreateNew()
-                         .With(c => c.Profile = new Profile { Cutoff = Quality.FLAC.Id })
+                         .With(c => c.QualityProfile = new QualityProfile { Cutoff = Quality.FLAC.Id })
                          .Build();
 
             Mocker.GetMock<IMediaFileService>()
